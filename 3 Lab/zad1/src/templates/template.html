@@ -1,0 +1,42 @@
+<div class="container">
+    <h1>Vue Password Strength Indicator</h1>
+    <label class="frmLabel" for="password">Password</label>
+    <input
+      placeholder="Enter your password"
+      name="password"
+      class="frmField"
+      type="password"
+      v-model="password"
+      @input="checkPassword"
+    />
+    <p class="frmValidation" :class="{'frmValidation--passed': password.length > 7}">
+      <i class="frmIcon fas" :class="password.length > 7 ? 'fa-check' : 'fa-times'"></i>
+      Longer than 7 characters
+    </p>
+    <p class="frmValidation" :class="{'frmValidation--passed': hasUppercase}">
+      <i class="frmIcon fas" :class="hasUppercase ? 'fa-check' : 'fa-times'"></i>
+      Has a capital letter
+    </p>
+    <p class="frmValidation" :class="{'frmValidation--passed': hasLowercase}">
+      <i class="frmIcon fas" :class="hasLowercase ? 'fa-check' : 'fa-times'"></i>
+      Has a lowercase letter
+    </p>
+    <p class="frmValidation" :class="{'frmValidation--passed': hasNumber}">
+      <i class="frmIcon fas" :class="hasNumber ? 'fa-check' : 'fa-times'"></i>
+      Has a number
+    </p>
+    <p class="frmValidation" :class="{'frmValidation--passed': hasSpecial}">
+      <i class="frmIcon fas" :class="hasSpecial ? 'fa-check' : 'fa-times'"></i>
+      Has a special character
+    </p>
+  </div>
+
+  <div>
+    <label class="frmLabel" for="email">Email</label>
+    <input placeholder="Email" class="frmField" name="email" v-model="email" @input="checkEmail">
+    <p class="frmValidation" :class="{'frmValidation--passed': emailValidation}">
+      <i class="frmIcon fas" :class="emailValidation ? 'fa-check' : 'fa-times'"></i>
+      Correct email
+    </p>
+  </div>
+  
